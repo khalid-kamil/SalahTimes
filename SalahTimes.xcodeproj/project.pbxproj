@@ -14,6 +14,10 @@
 		E9E755D82A4B791B00C3599D /* SalahTimesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E755D72A4B791B00C3599D /* SalahTimesTests.swift */; };
 		E9E755E22A4B791B00C3599D /* SalahTimesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E755E12A4B791B00C3599D /* SalahTimesUITests.swift */; };
 		E9E755E42A4B791B00C3599D /* SalahTimesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E755E32A4B791B00C3599D /* SalahTimesUITestsLaunchTests.swift */; };
+		E9E755F12A4B95FB00C3599D /* Today.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E755F02A4B95FB00C3599D /* Today.swift */; };
+		E9E755F32A4B989400C3599D /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E755F22A4B989400C3599D /* Calendar.swift */; };
+		E9E755FC2A4BA62600C3599D /* CalendarSalahCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E755FB2A4BA62600C3599D /* CalendarSalahCell.swift */; };
+		E9E755FE2A4BABC400C3599D /* CalendarDayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E755FD2A4BABC400C3599D /* CalendarDayRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,10 @@
 		E9E755DD2A4B791B00C3599D /* SalahTimesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SalahTimesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9E755E12A4B791B00C3599D /* SalahTimesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalahTimesUITests.swift; sourceTree = "<group>"; };
 		E9E755E32A4B791B00C3599D /* SalahTimesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalahTimesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E9E755F02A4B95FB00C3599D /* Today.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Today.swift; sourceTree = "<group>"; };
+		E9E755F22A4B989400C3599D /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
+		E9E755FB2A4BA62600C3599D /* CalendarSalahCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSalahCell.swift; sourceTree = "<group>"; };
+		E9E755FD2A4BABC400C3599D /* CalendarDayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDayRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +102,10 @@
 		E9E755C52A4B791900C3599D /* SalahTimes */ = {
 			isa = PBXGroup;
 			children = (
-				E9E755C62A4B791900C3599D /* SalahTimesApp.swift */,
-				E9E755C82A4B791900C3599D /* ContentView.swift */,
+				E9E755F42A4BA08D00C3599D /* App */,
+				E9E755F52A4BA0AF00C3599D /* Components */,
+				E9E755F62A4BA0BC00C3599D /* Core */,
+				E9E755F72A4BA0C600C3599D /* Model */,
 				E9E755CA2A4B791A00C3599D /* Assets.xcassets */,
 				E9E755CC2A4B791A00C3599D /* Preview Content */,
 			);
@@ -125,6 +135,64 @@
 				E9E755E32A4B791B00C3599D /* SalahTimesUITestsLaunchTests.swift */,
 			);
 			path = SalahTimesUITests;
+			sourceTree = "<group>";
+		};
+		E9E755F42A4BA08D00C3599D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				E9E755C62A4B791900C3599D /* SalahTimesApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		E9E755F52A4BA0AF00C3599D /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E9E755FB2A4BA62600C3599D /* CalendarSalahCell.swift */,
+				E9E755FD2A4BABC400C3599D /* CalendarDayRow.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E9E755F62A4BA0BC00C3599D /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				E9E755F82A4BA0ED00C3599D /* Root */,
+				E9E755F92A4BA11600C3599D /* Today */,
+				E9E755FA2A4BA11B00C3599D /* Calendar */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		E9E755F72A4BA0C600C3599D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E9E755F82A4BA0ED00C3599D /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				E9E755C82A4B791900C3599D /* ContentView.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		E9E755F92A4BA11600C3599D /* Today */ = {
+			isa = PBXGroup;
+			children = (
+				E9E755F02A4B95FB00C3599D /* Today.swift */,
+			);
+			path = Today;
+			sourceTree = "<group>";
+		};
+		E9E755FA2A4BA11B00C3599D /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				E9E755F22A4B989400C3599D /* Calendar.swift */,
+			);
+			path = Calendar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,7 +326,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9E755C92A4B791900C3599D /* ContentView.swift in Sources */,
+				E9E755FE2A4BABC400C3599D /* CalendarDayRow.swift in Sources */,
+				E9E755F12A4B95FB00C3599D /* Today.swift in Sources */,
 				E9E755C72A4B791900C3599D /* SalahTimesApp.swift in Sources */,
+				E9E755FC2A4BA62600C3599D /* CalendarSalahCell.swift in Sources */,
+				E9E755F32A4B989400C3599D /* Calendar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
