@@ -38,7 +38,7 @@ struct Today: View {
             .padding()
             
             List {
-                Section(header: HStack{
+                Section(header: HStack {
                     Text("Today")
                     Spacer()
                     Button {
@@ -48,52 +48,16 @@ struct Today: View {
                             .fontWeight(.medium)
                             .font(.footnote)
                     }
-                    
-                }) {
-                    HStack {
-                        Text("Fajr")
-                        Spacer()
-                        Text("03:00")
-                    }
-                    .foregroundColor(.secondary)
-                    
-                    HStack {
-                        Text("Dhuhr")
-                        Spacer()
-                        Text("13:00")
-                    }
-                    .foregroundColor(.primary)
-                    .fontWeight(.medium)
-                    
-                    HStack {
-                        Text("Asr")
-                        Spacer()
-                        Text("18:00")
-                    }
-                    .foregroundColor(.secondary)
-                    
-                    HStack {
-                        Text("Maghrib")
-                        Spacer()
-                        Text("21:25")
-                    }
-                    .foregroundColor(.secondary)
-                    
-                    HStack {
-                        Text("Isha")
-                        Spacer()
-                        Text("22:45")
-                    }
-                    .foregroundColor(.secondary)
+                }){
+                    TodaySalahRow(salah: "Fajr", salahTime: "03:00")
+                    TodaySalahRow(salah: "Dhuhr", salahTime: "13:00")
+                    TodaySalahRow(salah: "Asr", salahTime: "18:00", isNextSalah: true)
+                    TodaySalahRow(salah: "Maghrib", salahTime: "21:25")
+                    TodaySalahRow(salah: "Isha", salahTime: "22:45")
                 }
                 
                 Section("Tomorrow") {
-                    HStack {
-                        Text("Fajr")
-                        Spacer()
-                        Text("03:00")
-                    }
-                    .foregroundColor(.secondary)
+                    TodaySalahRow(salah: "Fajr", salahTime: "03:00")
                 }
             }
         }

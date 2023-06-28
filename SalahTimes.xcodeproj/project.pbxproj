@@ -18,6 +18,7 @@
 		E9E755F32A4B989400C3599D /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E755F22A4B989400C3599D /* Calendar.swift */; };
 		E9E755FC2A4BA62600C3599D /* CalendarSalahCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E755FB2A4BA62600C3599D /* CalendarSalahCell.swift */; };
 		E9E755FE2A4BABC400C3599D /* CalendarDayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E755FD2A4BABC400C3599D /* CalendarDayRow.swift */; };
+		E9E756002A4BC44700C3599D /* TodaySalahRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E755FF2A4BC44700C3599D /* TodaySalahRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		E9E755F22A4B989400C3599D /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		E9E755FB2A4BA62600C3599D /* CalendarSalahCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSalahCell.swift; sourceTree = "<group>"; };
 		E9E755FD2A4BABC400C3599D /* CalendarDayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDayRow.swift; sourceTree = "<group>"; };
+		E9E755FF2A4BC44700C3599D /* TodaySalahRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaySalahRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 			children = (
 				E9E755FB2A4BA62600C3599D /* CalendarSalahCell.swift */,
 				E9E755FD2A4BABC400C3599D /* CalendarDayRow.swift */,
+				E9E755FF2A4BC44700C3599D /* TodaySalahRow.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				E9E755F12A4B95FB00C3599D /* Today.swift in Sources */,
 				E9E755C72A4B791900C3599D /* SalahTimesApp.swift in Sources */,
 				E9E755FC2A4BA62600C3599D /* CalendarSalahCell.swift in Sources */,
+				E9E756002A4BC44700C3599D /* TodaySalahRow.swift in Sources */,
 				E9E755F32A4B989400C3599D /* Calendar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
