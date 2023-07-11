@@ -30,7 +30,7 @@ struct Today: View {
 extension Today {
   private var hijriHeader: some View {
     VStack(alignment: .leading, spacing: 0) {
-      Text("Hijri date".uppercased())
+      Text(Date().hijriFormat)
         .font(.footnote)
         .fontWeight(.semibold)
         .foregroundColor(.secondary)
@@ -72,6 +72,15 @@ extension Today {
     Section(header: SectionHeader(text: "Tomorrow")) {
       TodaySalahRow(salah: "Fajr", adhanTime: "03:00", iqamaTime: "03:00")
     }
+  }
+}
+
+extension Date {
+  var hijriFormat: String {
+    let formatter = DateFormatter()
+    formatter.calendar = .init(identifier: .islamic)
+    formatter.dateStyle = .full
+    return formatter.string(from: self)
   }
 }
 
