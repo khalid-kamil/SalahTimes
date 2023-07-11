@@ -11,23 +11,27 @@ import SwiftUI
 
 struct TodaySalahRow: View {
   let salah: String
-  let salahTime: String
-  let isNextSalah: Bool
-
-  init(salah: String, salahTime: String, isNextSalah: Bool = false) {
-    self.salah = salah
-    self.salahTime = salahTime
-    self.isNextSalah = isNextSalah
-  }
+  let adhanTime: String
+  let iqamaTime: String
+  var isNextSalah = false
 
   var body: some View {
-    HStack {
+    HStack(alignment: .bottom) {
       Text(salah)
       Spacer()
-      Text(salahTime)
+      Text(adhanTime)
+        .foregroundColor(.secondary)
+        .padding(.trailing, 8)
+      Text(iqamaTime)
     }
-    .foregroundColor(isNextSalah ? .primary : .secondary)
+    .foregroundColor(isNextSalah ? .accentColor : .secondary)
     .fontWeight(isNextSalah ? .semibold : .regular)
+    .padding()
+    .overlay(
+      RoundedRectangle(cornerRadius: 12)
+        .stroke(
+          isNextSalah ? Color.accentColor : Color.secondary,
+          lineWidth: isNextSalah ? 2 : 1))
   }
 }
 
@@ -36,13 +40,13 @@ struct TodaySalahRow: View {
 struct TodaySalahRow_Previews: PreviewProvider {
   static var previews: some View {
     Group {
-      TodaySalahRow(salah: "Fajr", salahTime: "03:00")
+      TodaySalahRow(salah: "Fajr", adhanTime: "03:00", iqamaTime: "03:30")
         .previewDisplayName("Today Salah Row")
         .previewLayout(.sizeThatFits)
         .background(Color(.secondarySystemBackground))
         .padding()
 
-      TodaySalahRow(salah: "Fajr", salahTime: "03:00", isNextSalah: true)
+      TodaySalahRow(salah: "Fajr", adhanTime: "03:00", iqamaTime: "03:30", isNextSalah: true)
         .previewDisplayName("Today Next Salah Row")
         .previewLayout(.sizeThatFits)
         .background(Color(.secondarySystemBackground))

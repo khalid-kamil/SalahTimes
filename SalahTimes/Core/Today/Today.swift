@@ -48,15 +48,15 @@ struct Today: View {
               .font(.footnote)
           }
         }) {
-          TodaySalahRow(salah: "Fajr", salahTime: "03:00")
-          TodaySalahRow(salah: "Dhuhr", salahTime: "13:00")
-          TodaySalahRow(salah: "Asr", salahTime: "18:00", isNextSalah: true)
-          TodaySalahRow(salah: "Maghrib", salahTime: "21:25")
-          TodaySalahRow(salah: "Isha", salahTime: "22:45")
+          TodaySalahRow(salah: "Fajr", adhanTime: "03:00", iqamaTime: "03:00")
+          TodaySalahRow(salah: "Dhuhr", adhanTime: "03:00", iqamaTime: "13:00")
+          TodaySalahRow(salah: "Asr", adhanTime: "03:00", iqamaTime: "18:00", isNextSalah: true)
+          TodaySalahRow(salah: "Maghrib", adhanTime: "03:00", iqamaTime: "21:25")
+          TodaySalahRow(salah: "Isha", adhanTime: "03:00", iqamaTime: "22:45")
         }
 
         Section("Tomorrow") {
-          TodaySalahRow(salah: "Fajr", salahTime: "03:00")
+          TodaySalahRow(salah: "Fajr", adhanTime: "03:00", iqamaTime: "03:00")
         }
       }
     }
