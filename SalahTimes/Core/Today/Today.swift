@@ -37,17 +37,7 @@ struct Today: View {
       .padding()
 
       List {
-        Section(header: HStack {
-          Text("Today")
-          Spacer()
-          Button {
-            print("Adhan")
-          } label: {
-            Text("Adhan")
-              .fontWeight(.medium)
-              .font(.footnote)
-          }
-        }) {
+        Section("Today") {
           TodaySalahRow(salah: "Fajr", adhanTime: "03:00", iqamaTime: "03:00")
           TodaySalahRow(salah: "Dhuhr", adhanTime: "03:00", iqamaTime: "13:00")
           TodaySalahRow(salah: "Asr", adhanTime: "03:00", iqamaTime: "18:00", isNextSalah: true)
