@@ -10,6 +10,9 @@ import SwiftUI
 // MARK: - Today
 
 struct Today: View {
+  private let mosque = "Acton Mosque"
+  @State private var showMosqueInformation = false
+
   var body: some View {
     VStack(alignment: .leading, spacing: 16) {
       hijriHeader
@@ -40,15 +43,18 @@ extension Today {
 
   private var mosqueName: some View {
     HStack {
-      Text("Acton Mosque")
+      Text(mosque)
         .font(.title2)
         .fontWeight(.semibold)
       Button {
-        print("Get directions to mosque...")
+        showMosqueInformation.toggle()
       } label: {
         Image(systemName: "info.circle")
           .foregroundColor(.accentColor)
       }
+    }
+    .sheet(isPresented: $showMosqueInformation) {
+      MosqueInformation(mosqueName: mosque)
     }
   }
 
