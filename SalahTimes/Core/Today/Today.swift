@@ -11,18 +11,17 @@ import SwiftUI
 
 struct Today: View {
   var body: some View {
-    VStack(alignment: .leading) {
+    VStack(alignment: .leading, spacing: 16) {
       VStack(alignment: .leading, spacing: 0) {
         Text("Hijri date".uppercased())
           .font(.footnote)
           .fontWeight(.semibold)
           .foregroundColor(.secondary)
+          .padding(.top)
         Text("Today")
           .font(.largeTitle)
           .fontWeight(.bold)
       }
-      .padding()
-
       HStack {
         Text("Enfield Mosque")
           .font(.title2)
@@ -34,23 +33,23 @@ struct Today: View {
             .foregroundColor(.accentColor)
         }
       }
-      .padding()
-
-      List {
-        Section("Today") {
-          TodaySalahRow(salah: "Fajr", adhanTime: "03:00", iqamaTime: "03:00")
-          TodaySalahRow(salah: "Dhuhr", adhanTime: "03:00", iqamaTime: "13:00")
-          TodaySalahRow(salah: "Asr", adhanTime: "03:00", iqamaTime: "18:00", isNextSalah: true)
-          TodaySalahRow(salah: "Maghrib", adhanTime: "03:00", iqamaTime: "21:25")
-          TodaySalahRow(salah: "Isha", adhanTime: "03:00", iqamaTime: "22:45")
-        }
-
-        Section("Tomorrow") {
-          TodaySalahRow(salah: "Fajr", adhanTime: "03:00", iqamaTime: "03:00")
-        }
+      Spacer()
+      Section(header: Text("Today").padding(.top)) {
+        TodaySalahRow(salah: "Fajr", adhanTime: "03:00", iqamaTime: "03:00")
+        TodaySalahRow(salah: "Dhuhr", adhanTime: "03:00", iqamaTime: "13:00")
+        TodaySalahRow(salah: "Asr", adhanTime: "03:00", iqamaTime: "18:00", isNextSalah: true)
+        TodaySalahRow(salah: "Maghrib", adhanTime: "03:00", iqamaTime: "21:25")
+        TodaySalahRow(salah: "Isha", adhanTime: "03:00", iqamaTime: "22:45")
       }
+
+      Section(header: Text("Tomorrow").padding(.top)) {
+        TodaySalahRow(salah: "Fajr", adhanTime: "03:00", iqamaTime: "03:00")
+      }
+
+      Spacer()
+      Spacer()
     }
-    .background(Color(.secondarySystemBackground))
+    .padding(.horizontal, 16)
   }
 }
 
