@@ -40,13 +40,13 @@ extension Today {
 
   private var mosqueName: some View {
     HStack {
-      Text("Enfield Mosque")
+      Text("Acton Mosque")
         .font(.title2)
         .fontWeight(.semibold)
       Button {
         print("Get directions to mosque...")
       } label: {
-        Image(systemName: "map")
+        Image(systemName: "info.circle")
           .foregroundColor(.accentColor)
       }
     }
