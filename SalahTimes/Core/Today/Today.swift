@@ -12,6 +12,7 @@ import SwiftUI
 struct Today: View {
   private let mosque = "Acton Mosque"
   @State private var showMosqueInformation = false
+  @State private var displayHijriDate = true
 
   var body: some View {
     VStack(alignment: .leading, spacing: 16) {
@@ -30,11 +31,14 @@ struct Today: View {
 extension Today {
   private var hijriHeader: some View {
     VStack(alignment: .leading, spacing: 0) {
-      Text(Date().hijriFormat)
+      Text(displayHijriDate ? Date().hijriFormat : Date().gregorianFormat)
         .font(.footnote)
         .fontWeight(.semibold)
         .foregroundColor(.secondary)
         .padding(.top)
+        .onTapGesture {
+          displayHijriDate.toggle()
+        }
       Text("Today")
         .font(.largeTitle)
         .fontWeight(.bold)
@@ -76,6 +80,10 @@ extension Today {
 }
 
 extension Date {
+  var gregorianFormat: String {
+    formatted(date: .complete, time: .omitted)
+  }
+
   var hijriFormat: String {
     let formatter = DateFormatter()
     formatter.calendar = .init(identifier: .islamic)
