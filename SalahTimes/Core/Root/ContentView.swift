@@ -7,26 +7,28 @@
 
 import SwiftUI
 
+// MARK: - ContentView
+
 struct ContentView: View {
-    
-    var body: some View {
-        
-        TabView {
-            Today()
-                .tabItem {
-                    Label("Today", systemImage: "square.stack.3d.up.fill")
-                }
-            Calendar()
-                .tabItem {
-                    Label("Calendar", systemImage: "calendar")
-                }
+
+  var body: some View {
+    TabView {
+      Today()
+        .tabItem {
+          Label("Today", systemImage: "square.stack.3d.up.fill")
         }
-        
+      Calendar()
+        .tabItem {
+          Label("Calendar", systemImage: "calendar")
+        }
     }
+  }
 }
 
+// MARK: - ContentView_Previews
+
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+  static var previews: some View {
+    ContentView()
+  }
 }
