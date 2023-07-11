@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E94025822A5DB81100BBC0F2 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94025812A5DB81100BBC0F2 /* SectionHeader.swift */; };
 		E9E755C72A4B791900C3599D /* SalahTimesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E755C62A4B791900C3599D /* SalahTimesApp.swift */; };
 		E9E755C92A4B791900C3599D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E755C82A4B791900C3599D /* ContentView.swift */; };
 		E9E755CB2A4B791A00C3599D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9E755CA2A4B791A00C3599D /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E94025812A5DB81100BBC0F2 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 		E9E755C32A4B791900C3599D /* SalahTimes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SalahTimes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9E755C62A4B791900C3599D /* SalahTimesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalahTimesApp.swift; sourceTree = "<group>"; };
 		E9E755C82A4B791900C3599D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				E9E755FB2A4BA62600C3599D /* CalendarSalahCell.swift */,
 				E9E755FD2A4BABC400C3599D /* CalendarDayRow.swift */,
 				E9E755FF2A4BC44700C3599D /* TodaySalahRow.swift */,
+				E94025812A5DB81100BBC0F2 /* SectionHeader.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				E9E755FE2A4BABC400C3599D /* CalendarDayRow.swift in Sources */,
 				E9E755F12A4B95FB00C3599D /* Today.swift in Sources */,
 				E9E755C72A4B791900C3599D /* SalahTimesApp.swift in Sources */,
+				E94025822A5DB81100BBC0F2 /* SectionHeader.swift in Sources */,
 				E9E755FC2A4BA62600C3599D /* CalendarSalahCell.swift in Sources */,
 				E9E756002A4BC44700C3599D /* TodaySalahRow.swift in Sources */,
 				E9E755F32A4B989400C3599D /* Calendar.swift in Sources */,

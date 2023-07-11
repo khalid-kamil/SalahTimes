@@ -53,7 +53,7 @@ extension Today {
   }
 
   private var todaysTimes: some View {
-    Section(header: Text("Today").padding(.top)) {
+    Section(header: SectionHeader(text: "Today")) {
       TodaySalahRow(salah: "Fajr", adhanTime: "03:00", iqamaTime: "03:00")
       TodaySalahRow(salah: "Dhuhr", adhanTime: "03:00", iqamaTime: "13:00")
       TodaySalahRow(salah: "Asr", adhanTime: "03:00", iqamaTime: "18:00", isNextSalah: true)
@@ -63,7 +63,7 @@ extension Today {
   }
 
   private var tomorrowsTimes: some View {
-    Section(header: Text("Tomorrow").padding(.top)) {
+    Section(header: SectionHeader(text: "Tomorrow")) {
       TodaySalahRow(salah: "Fajr", adhanTime: "03:00", iqamaTime: "03:00")
     }
   }
