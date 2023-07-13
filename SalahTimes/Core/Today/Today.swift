@@ -15,16 +15,18 @@ struct Today: View {
   @State private var displayHijriDate = true
 
   var body: some View {
-    VStack(alignment: .leading, spacing: 16) {
-      hijriHeader
-      mosqueName
-      Spacer()
-      todaysTimes
-      tomorrowsTimes
-      Spacer()
-      Spacer()
+    ScrollView {
+      VStack(alignment: .leading, spacing: 16) {
+        hijriHeader
+        mosqueName
+        todaysTimes
+        tomorrowsTimes
+        Spacer()
+        Spacer()
+      }
+      .padding(.horizontal, 16)
     }
-    .padding(.horizontal, 16)
+    .padding(.top, 1)
   }
 }
 
