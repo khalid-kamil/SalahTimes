@@ -1,5 +1,5 @@
 //
-//  SectionHeader.swift
+//  SectionHeaderView.swift
 //  SalahTimes
 //
 //  Created by Khalid Kamil on 11/07/2023.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-// MARK: - SectionHeader
+// MARK: - SectionHeaderView
 
-struct SectionHeader: View {
+struct SectionHeaderView: View {
   let text: String
 
   var body: some View {
@@ -24,7 +24,7 @@ struct SectionHeader: View {
 
 struct SectionHeader_Previews: PreviewProvider {
   static var previews: some View {
-    SectionHeader(text: "Today")
+    SectionHeaderView(text: "Today")
       .previewDisplayName("Section Header")
       .previewLayout(.sizeThatFits)
       .background(Color(.secondarySystemBackground))

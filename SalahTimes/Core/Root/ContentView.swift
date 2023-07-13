@@ -13,11 +13,11 @@ struct ContentView: View {
 
   var body: some View {
     TabView {
-      Today()
+      TodayView()
         .tabItem {
           Label("Today", systemImage: "square.stack.3d.up.fill")
         }
-      Calendar()
+      CalendarView()
         .tabItem {
           Label("Calendar", systemImage: "calendar")
         }

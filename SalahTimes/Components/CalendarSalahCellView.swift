@@ -1,5 +1,5 @@
 //
-//  CalendarSalahCell.swift
+//  CalendarSalahCellView.swift
 //  SalahTimes
 //
 //  Created by Khalid Kamil on 28/06/2023.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-// MARK: - CalendarSalahCell
+// MARK: - CalendarSalahCellView
 
-struct CalendarSalahCell: View {
+struct CalendarSalahCellView: View {
 
   // MARK: Lifecycle
 
@@ -55,7 +55,7 @@ struct CalendarSalahCell: View {
 
 struct CalendarSalahCell_Previews: PreviewProvider {
   static var previews: some View {
-    CalendarSalahCell(salahName: "Fajr", salahTime: "02:49", iqamaTime: "03:09")
+    CalendarSalahCellView(salahName: "Fajr", salahTime: "02:49", iqamaTime: "03:09")
       .previewDisplayName("Calendar Salah Cell")
       .previewLayout(.sizeThatFits)
       .background(Color(.secondarySystemBackground))

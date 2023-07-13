@@ -1,5 +1,5 @@
 //
-//  Today.swift
+//  TodayView.swift
 //  SalahTimes
 //
 //  Created by Khalid Kamil on 27/06/2023.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-// MARK: - Today
+// MARK: - TodayView
 
-struct Today: View {
+struct TodayView: View {
   private let mosque = "Acton Mosque"
   @State private var showMosqueInformation = false
   @State private var displayHijriDate = true
@@ -30,7 +30,7 @@ struct Today: View {
   }
 }
 
-extension Today {
+extension TodayView {
   private var hijriHeader: some View {
     VStack(alignment: .leading, spacing: 0) {
       Text(displayHijriDate ? Date().hijriFormat : Date().gregorianFormat)
@@ -60,23 +60,23 @@ extension Today {
       }
     }
     .sheet(isPresented: $showMosqueInformation) {
-      MosqueInformation(mosqueName: mosque)
+      MosqueInformationView(mosqueName: mosque)
     }
   }
 
   private var todaysTimes: some View {
-    Section(header: SectionHeader(text: "Today")) {
-      TodaySalahRow(salah: "Fajr", adhanTime: "03:00", iqamaTime: "03:00")
-      TodaySalahRow(salah: "Dhuhr", adhanTime: "03:00", iqamaTime: "13:00")
-      TodaySalahRow(salah: "Asr", adhanTime: "03:00", iqamaTime: "18:00", isNextSalah: true)
-      TodaySalahRow(salah: "Maghrib", adhanTime: "03:00", iqamaTime: "21:25")
-      TodaySalahRow(salah: "Isha", adhanTime: "03:00", iqamaTime: "22:45")
+    Section(header: SectionHeaderView(text: "Today")) {
+      TodaySalahRowView(salah: "Fajr", adhanTime: "03:00", iqamaTime: "03:00")
+      TodaySalahRowView(salah: "Dhuhr", adhanTime: "03:00", iqamaTime: "13:00")
+      TodaySalahRowView(salah: "Asr", adhanTime: "03:00", iqamaTime: "18:00", isNextSalah: true)
+      TodaySalahRowView(salah: "Maghrib", adhanTime: "03:00", iqamaTime: "21:25")
+      TodaySalahRowView(salah: "Isha", adhanTime: "03:00", iqamaTime: "22:45")
     }
   }
 
   private var tomorrowsTimes: some View {
-    Section(header: SectionHeader(text: "Tomorrow")) {
-      TodaySalahRow(salah: "Fajr", adhanTime: "03:00", iqamaTime: "03:00")
+    Section(header: SectionHeaderView(text: "Tomorrow")) {
+      TodaySalahRowView(salah: "Fajr", adhanTime: "03:00", iqamaTime: "03:00")
     }
   }
 }
@@ -98,6 +98,6 @@ extension Date {
 
 struct Today_Previews: PreviewProvider {
   static var previews: some View {
-    Today()
+    TodayView()
   }
 }

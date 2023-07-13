@@ -1,5 +1,5 @@
 //
-//  TodaySalahRow.swift
+//  TodaySalahRowView.swift
 //  SalahTimes
 //
 //  Created by Khalid Kamil on 28/06/2023.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-// MARK: - TodaySalahRow
+// MARK: - TodaySalahRowView
 
-struct TodaySalahRow: View {
+struct TodaySalahRowView: View {
   let salah: String
   let adhanTime: String
   let iqamaTime: String
@@ -40,13 +40,13 @@ struct TodaySalahRow: View {
 struct TodaySalahRow_Previews: PreviewProvider {
   static var previews: some View {
     Group {
-      TodaySalahRow(salah: "Fajr", adhanTime: "03:00", iqamaTime: "03:30")
+      TodaySalahRowView(salah: "Fajr", adhanTime: "03:00", iqamaTime: "03:30")
         .previewDisplayName("Today Salah Row")
         .previewLayout(.sizeThatFits)
         .background(Color(.secondarySystemBackground))
         .padding()
 
-      TodaySalahRow(salah: "Fajr", adhanTime: "03:00", iqamaTime: "03:30", isNextSalah: true)
+      TodaySalahRowView(salah: "Fajr", adhanTime: "03:00", iqamaTime: "03:30", isNextSalah: true)
         .previewDisplayName("Today Next Salah Row")
         .previewLayout(.sizeThatFits)
         .background(Color(.secondarySystemBackground))

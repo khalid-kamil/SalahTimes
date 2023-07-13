@@ -1,5 +1,5 @@
 //
-//  Calendar.swift
+//  CalendarView.swift
 //  SalahTimes
 //
 //  Created by Khalid Kamil on 27/06/2023.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-// MARK: - Calendar
+// MARK: - CalendarView
 
-struct Calendar: View {
+struct CalendarView: View {
   var body: some View {
     VStack(alignment: .leading) {
       VStack(alignment: .leading, spacing: 0) {
@@ -38,21 +38,21 @@ struct Calendar: View {
 
       List {
         Section(header: Text("Dhul Hijja")) {
-          CalendarDayRow(weekDay: "Tue", day: "9")
-          CalendarDayRow(weekDay: "Wed", day: "10")
-          CalendarDayRow(weekDay: "Thu", day: "11")
-          CalendarDayRow(weekDay: "Fri", day: "12")
-          CalendarDayRow(weekDay: "Sat", day: "13")
-          CalendarDayRow(weekDay: "Sun", day: "14")
+          CalendarDayRowView(weekDay: "Tue", day: "9")
+          CalendarDayRowView(weekDay: "Wed", day: "10")
+          CalendarDayRowView(weekDay: "Thu", day: "11")
+          CalendarDayRowView(weekDay: "Fri", day: "12")
+          CalendarDayRowView(weekDay: "Sat", day: "13")
+          CalendarDayRowView(weekDay: "Sun", day: "14")
         }
 
         Section("Muharram") {
-          CalendarDayRow(weekDay: "Tue", day: "1")
-          CalendarDayRow(weekDay: "Wed", day: "2")
-          CalendarDayRow(weekDay: "Thu", day: "3")
-          CalendarDayRow(weekDay: "Fri", day: "4")
-          CalendarDayRow(weekDay: "Sat", day: "5")
-          CalendarDayRow(weekDay: "Sun", day: "6")
+          CalendarDayRowView(weekDay: "Tue", day: "1")
+          CalendarDayRowView(weekDay: "Wed", day: "2")
+          CalendarDayRowView(weekDay: "Thu", day: "3")
+          CalendarDayRowView(weekDay: "Fri", day: "4")
+          CalendarDayRowView(weekDay: "Sat", day: "5")
+          CalendarDayRowView(weekDay: "Sun", day: "6")
         }
       }
     }
@@ -64,6 +64,6 @@ struct Calendar: View {
 
 struct Calendar_Previews: PreviewProvider {
   static var previews: some View {
-    Calendar()
+    CalendarView()
   }
 }

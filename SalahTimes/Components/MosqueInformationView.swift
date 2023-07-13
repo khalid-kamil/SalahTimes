@@ -1,5 +1,5 @@
 //
-//  MosqueInformation.swift
+//  MosqueInformationView.swift
 //  SalahTimes
 //
 //  Created by Khalid Kamil on 11/07/2023.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-// MARK: - MosqueInformation
+// MARK: - MosqueInformationView
 
-struct MosqueInformation: View {
+struct MosqueInformationView: View {
   @Environment(\.dismiss) var dismiss
   let mosqueName: String
 
@@ -71,6 +71,6 @@ struct MosqueInformation: View {
 
 struct MosqueInformation_Previews: PreviewProvider {
   static var previews: some View {
-    MosqueInformation(mosqueName: "Mosque Name")
+    MosqueInformationView(mosqueName: "Mosque Name")
   }
 }
