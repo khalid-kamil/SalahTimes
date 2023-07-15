@@ -1,0 +1,90 @@
+{
+  "name": "Jalalia Jamme Masjeed Enfield",
+  "prayer_calendar": [{
+    "date": "15-07-2023",
+    "prayer_times": {
+      "fajr": {
+        "beginning_time": "03:07",
+        "congregation_time": "04:00"
+      },
+      "sunrise": {
+        "beginning_time": "05:01",
+        "congregation_time": ""
+      },
+      "dhuhr": {
+        "beginning_time": "13:12",
+        "congregation_time": "13:30"
+      },
+      "asr": {
+        "beginning_time": "18:37",
+        "congregation_time": "19:15"
+      },
+      "maghrib": {
+        "beginning_time": "21:15",
+        "congregation_time": "21:17"
+      },
+      "isha": {
+        "beginning_time": "22:31",
+        "congregation_time": "23:00"
+      }
+    }
+  },
+    {
+      "date": "16-07-2023",
+      "prayer_times": {
+        "fajr": {
+          "beginning_time": "03:09",
+          "congregation_time": "04:15"
+        },
+        "sunrise": {
+          "beginning_time": "05:02",
+          "congregation_time": ""
+        },
+        "dhuhr": {
+          "beginning_time": "13:12",
+          "congregation_time": "13:30"
+        },
+        "asr": {
+          "beginning_time": "18:36",
+          "congregation_time": "19:15"
+        },
+        "maghrib": {
+          "beginning_time": "21:14",
+          "congregation_time": "21:16"
+        },
+        "isha": {
+          "beginning_time": "22:30",
+          "congregation_time": "22:45"
+        }
+      }
+    },
+    {
+      "date": "17-07-2023",
+      "prayer_times": {
+        "fajr": {
+          "beginning_time": "03:11",
+          "congregation_time": "04:15"
+        },
+        "sunrise": {
+          "beginning_time": "05:03",
+          "congregation_time": ""
+        },
+        "dhuhr": {
+          "beginning_time": "13:12",
+          "congregation_time": "13:30"
+        },
+        "asr": {
+          "beginning_time": "18:35",
+          "congregation_time": "19:15"
+        },
+        "maghrib": {
+          "beginning_time": "21:13",
+          "congregation_time": "21:15"
+        },
+        "isha": {
+          "beginning_time": "22:29",
+          "congregation_time": "22:45"
+        }
+      }
+    }]
+}

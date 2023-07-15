@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E933A86D2A60502B00BBE9D5 /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E933A86C2A60502B00BBE9D5 /* TodayViewModel.swift */; };
 		E94025822A5DB81100BBC0F2 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94025812A5DB81100BBC0F2 /* SectionHeaderView.swift */; };
 		E94025842A5DBF5A00BBC0F2 /* MosqueInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94025832A5DBF5A00BBC0F2 /* MosqueInformationView.swift */; };
+		E9D2E61C2A6211FA0025A731 /* MosqueData.json in Resources */ = {isa = PBXBuildFile; fileRef = E9D2E61B2A6211FA0025A731 /* MosqueData.json */; };
 		E9E755C72A4B791900C3599D /* SalahTimesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E755C62A4B791900C3599D /* SalahTimesApp.swift */; };
 		E9E755C92A4B791900C3599D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E755C82A4B791900C3599D /* ContentView.swift */; };
 		E9E755CB2A4B791A00C3599D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9E755CA2A4B791A00C3599D /* Assets.xcassets */; };
@@ -41,8 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E933A86C2A60502B00BBE9D5 /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
 		E94025812A5DB81100BBC0F2 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		E94025832A5DBF5A00BBC0F2 /* MosqueInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MosqueInformationView.swift; sourceTree = "<group>"; };
+		E9D2E61B2A6211FA0025A731 /* MosqueData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MosqueData.json; sourceTree = "<group>"; };
 		E9E755C32A4B791900C3599D /* SalahTimes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SalahTimes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9E755C62A4B791900C3599D /* SalahTimesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalahTimesApp.swift; sourceTree = "<group>"; };
 		E9E755C82A4B791900C3599D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -85,6 +89,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E9D2E61A2A6211B50025A731 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E9D2E61B2A6211FA0025A731 /* MosqueData.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		E9E755BA2A4B791900C3599D = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +124,7 @@
 				E9E755F52A4BA0AF00C3599D /* Components */,
 				E9E755F62A4BA0BC00C3599D /* Core */,
 				E9E755F72A4BA0C600C3599D /* Model */,
+				E9D2E61A2A6211B50025A731 /* Resources */,
 				E9E755CA2A4B791A00C3599D /* Assets.xcassets */,
 				E9E755CC2A4B791A00C3599D /* Preview Content */,
 			);
@@ -192,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				E9E755F02A4B95FB00C3599D /* TodayView.swift */,
+				E933A86C2A60502B00BBE9D5 /* TodayViewModel.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -313,6 +327,7 @@
 			files = (
 				E9E755CE2A4B791A00C3599D /* Preview Assets.xcassets in Resources */,
 				E9E755CB2A4B791A00C3599D /* Assets.xcassets in Resources */,
+				E9D2E61C2A6211FA0025A731 /* MosqueData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +414,7 @@
 			files = (
 				E9E755C92A4B791900C3599D /* ContentView.swift in Sources */,
 				E9E755FE2A4BABC400C3599D /* CalendarDayRowView.swift in Sources */,
+				E933A86D2A60502B00BBE9D5 /* TodayViewModel.swift in Sources */,
 				E94025842A5DBF5A00BBC0F2 /* MosqueInformationView.swift in Sources */,
 				E9E755F12A4B95FB00C3599D /* TodayView.swift in Sources */,
 				E9E755C72A4B791900C3599D /* SalahTimesApp.swift in Sources */,
