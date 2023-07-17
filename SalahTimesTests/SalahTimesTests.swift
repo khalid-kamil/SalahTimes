@@ -14,10 +14,15 @@ final class SalahTimesTests: XCTestCase {
 
   let loader = MosqueLoader()
 
-  func test_calendar_hasMosqueNameAndCalendar() {
+  func test_calendar_hasMosqueName() {
     let sut = loader.loadMosque()
 
     XCTAssertEqual(sut.mosqueName, "JJME")
+  }
+
+  func test_calendar_hasDays() {
+    let sut = loader.loadMosque()
+
     XCTAssertGreaterThan(sut.mosqueCalendar.count, 0)
   }
 
