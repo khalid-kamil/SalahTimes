@@ -61,28 +61,28 @@ extension TodayView {
     Section(header: SectionHeaderView(text: "Today")) {
       TodaySalahRowView(
         salah: "Fajr",
-        adhanTime: vm.todaysTimes2?.prayerTimes.fajr.beginningTime ?? "",
-        iqamaTime: vm.todaysTimes2?.prayerTimes.fajr.congregationTime ?? "")
+        adhanTime: vm.fajrStart,
+        iqamaTime: vm.fajrCongregation)
       TodaySalahRowView(
         salah: "Sunrise",
-        adhanTime: vm.todaysTimes2?.prayerTimes.sunrise.beginningTime ?? "",
-        iqamaTime: vm.todaysTimes2?.prayerTimes.sunrise.congregationTime ?? "")
+        adhanTime: vm.sunriseStart,
+        iqamaTime: "")
       TodaySalahRowView(
         salah: "Dhuhr",
-        adhanTime: vm.todaysTimes2?.prayerTimes.dhuhr.beginningTime ?? "",
-        iqamaTime: vm.todaysTimes2?.prayerTimes.dhuhr.congregationTime ?? "")
+        adhanTime: vm.dhuhrStart,
+        iqamaTime: vm.dhuhrCongregation)
       TodaySalahRowView(
         salah: "Asr",
-        adhanTime: vm.todaysTimes2?.prayerTimes.asr.beginningTime ?? "",
-        iqamaTime: vm.todaysTimes2?.prayerTimes.asr.congregationTime ?? "")
+        adhanTime: vm.asrStart,
+        iqamaTime: vm.asrCongregation)
       TodaySalahRowView(
         salah: "Maghrib",
-        adhanTime: vm.todaysTimes2?.prayerTimes.maghrib.beginningTime ?? "",
-        iqamaTime: vm.todaysTimes2?.prayerTimes.maghrib.congregationTime ?? "")
+        adhanTime: vm.maghribStart,
+        iqamaTime: vm.maghribCongregation)
       TodaySalahRowView(
         salah: "Isha",
-        adhanTime: vm.todaysTimes2?.prayerTimes.isha.beginningTime ?? "",
-        iqamaTime: vm.todaysTimes2?.prayerTimes.isha.congregationTime ?? "")
+        adhanTime: vm.ishaStart,
+        iqamaTime: vm.ishaCongregation)
     }
   }
 
