@@ -26,7 +26,7 @@ final class SalahTimesTests: XCTestCase {
 
 struct MosqueLoader {
   func loadMosque() -> MosqueCalendar {
-    MosqueCalendar(mosqueName: "")
+    MosqueCalendar(mosqueName: "JJME")
   }
 }
 
