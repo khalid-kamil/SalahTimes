@@ -26,6 +26,13 @@ final class SalahTimesTests: XCTestCase {
     XCTAssertGreaterThan(sut.mosqueCalendar.count, 0)
   }
 
+  func test_calendar_dayHasDate() {
+    let sut = loader.loadMosque()
+    let firstDay = sut.mosqueCalendar.first
+
+    XCTAssertNotNil(firstDay?.date)
+  }
+
   func test_calendar_dayHasFajr() {
     let sut = loader.loadMosque()
     let firstDay = sut.mosqueCalendar.first
@@ -39,7 +46,7 @@ final class SalahTimesTests: XCTestCase {
 
 struct MosqueLoader {
   func loadMosque() -> MosqueCalendar {
-    MosqueCalendar(mosqueName: "JJME", mosqueCalendar: [Day(fajr: "")])
+    MosqueCalendar(mosqueName: "JJME", mosqueCalendar: [Day(date: Date(), fajr: "")])
   }
 }
 
@@ -53,5 +60,6 @@ struct MosqueCalendar {
 // MARK: - Day
 
 struct Day {
-  let fajr: String?
+  let date: Date
+  let fajr: String
 }
