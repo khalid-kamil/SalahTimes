@@ -45,8 +45,8 @@ final class SalahTimesTests: XCTestCase {
 // MARK: - MosqueLoader
 
 struct MosqueLoader {
-  func loadMosque() -> MosqueCalendar {
-    MosqueCalendar(mosqueName: "JJME", mosqueCalendar: [Day(date: Date(), fajr: "")])
+  func loadMosque(name: String = "JJME", calendar: [Day] = [Day(date: Date(), fajr: "")]) -> MosqueCalendar {
+    MosqueCalendar(mosqueName: name, mosqueCalendar: calendar)
   }
 }
 
