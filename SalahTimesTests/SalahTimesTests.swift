@@ -8,14 +8,30 @@
 import XCTest
 @testable import SalahTimes
 
+// MARK: - SalahTimesTests
+
 final class SalahTimesTests: XCTestCase {
 
   let loader = MosqueLoader()
 
   func test_calendar_hasMosqueName() {
-    let sut = loader.loadMosqueCalendar()
+    let sut = loader.loadMosque()
 
     XCTAssertEqual(sut.mosqueName, "JJME")
   }
 
+}
+
+// MARK: - MosqueLoader
+
+struct MosqueLoader {
+  func loadMosque() -> MosqueCalendar {
+    MosqueCalendar(mosqueName: "")
+  }
+}
+
+// MARK: - MosqueCalendar
+
+struct MosqueCalendar {
+  let mosqueName: String
 }
