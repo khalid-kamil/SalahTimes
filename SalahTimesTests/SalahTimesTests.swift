@@ -17,13 +17,13 @@ final class SalahTimesTests: XCTestCase {
   func test_calendar_hasMosqueName() {
     let sut = loader.loadMosque()
 
-    XCTAssertEqual(sut.mosqueName, "JJME")
+    XCTAssertEqual(sut.name, "JJME")
   }
 
   func test_calendar_hasDays() {
     let sut = loader.loadMosque()
 
-    XCTAssertGreaterThan(sut.mosqueCalendar.count, 0)
+    XCTAssertGreaterThan(sut.calendar.count, 0)
   }
 
   func test_calendar_dayHasDate() {
@@ -56,7 +56,7 @@ final class SalahTimesTests: XCTestCase {
 
   func test_calendar_dayHasFajr() {
     let sut = loader.loadMosque()
-    let firstDay = sut.mosqueCalendar.first
+    let firstDay = sut.calendar.first
 
     XCTAssertNotNil(firstDay?.fajr)
   }
@@ -69,8 +69,8 @@ class MosqueLoaderSpy {
   var loadedDates = [String]()
   var loadedTimes = [PrayerTime]()
 
-  func loadMosque(name: String = "JJME") -> MosqueCalendar {
-    MosqueCalendar(mosqueName: name, mosqueCalendar: [
+  func loadMosque(name: String = "JJME") -> Mosque {
+    Mosque(name: name, calendar: [
       Day(date: createDate("18/07/2022"), fajr: createTime(start: "", congregation: "")),
       Day(date: createDate("19/07/2022"), fajr: createTime(start: "12:55", congregation: "13:30")),
     ])
@@ -105,9 +105,9 @@ class MosqueLoaderSpy {
 
 // MARK: - MosqueCalendar
 
-struct MosqueCalendar {
-  let mosqueName: String
-  let mosqueCalendar: [Day]
+struct Mosque {
+  let name: String
+  let calendar: [Day]
 }
 
 // MARK: - Day
