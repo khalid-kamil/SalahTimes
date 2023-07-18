@@ -12,98 +12,39 @@ import XCTest
 
 final class SalahTimesTests: XCTestCase {
 
-  let loader = MosqueLoaderSpy()
+  // MARK: - ClientSpy
+
+  class ClientSpy: Client {
+    var loadedMosque: Mosque? = nil
+    var sampleCalendar = [Day]()
+
+    var loadedDates = [String]()
+    var loadedTimes = [PrayerTime]()
+
+    func get(mosque: String) {
+      loadedMosque = Mosque(name: mosque, calendar: sampleCalendar)
+    }
+  }
+
+  let client = ClientSpy()
 
   func test_calendar_hasMosqueName() {
-    let sut = loader.loadMosque()
+    let sut = makeSUT()
 
-    XCTAssertEqual(sut.name, "JJME")
+    sut.loadMosque(name: "JJME")
+
+    XCTAssertNotNil(client.loadedMosque)
+    XCTAssertEqual(client.loadedMosque?.name, "JJME")
   }
 
-  func test_calendar_hasDays() {
-    let sut = loader.loadMosque()
-
-    XCTAssertGreaterThan(sut.calendar.count, 0)
-  }
-
-  func test_calendar_dayHasDate() {
-    let sut = loader.loadMosque()
-
-    XCTAssertFalse(loader.loadedDates.isEmpty)
-  }
-
-  func test_calendar_createValidDateFromString() {
-    let sut = loader.createDate("18/07/2023")
-
-    XCTAssertEqual(loader.loadedDates[0], "18/07/2023")
-  }
-
-  func test_calendar_createValidTimeFromString() {
-    let sut = loader.loadMosque()
-
-    let dateFormatter = DateFormatter()
-    dateFormatter.locale = Locale(identifier: "en_GB")
-    dateFormatter.dateFormat = "HH:mm"
-    let startTime = dateFormatter.date(from: "12:55")
-    let congregationTime = dateFormatter.date(from: "13:30")
-
-
-    XCTAssertNil(loader.loadedTimes[0].start)
-    XCTAssertNil(loader.loadedTimes[0].congregation)
-    XCTAssertEqual(loader.loadedTimes[1].start, startTime)
-    XCTAssertEqual(loader.loadedTimes[1].congregation, congregationTime)
-  }
-
-  func test_calendar_dayHasFajr() {
-    let sut = loader.loadMosque()
-    let firstDay = sut.calendar.first
-
-    XCTAssertNotNil(firstDay?.fajr)
+  // MARK: Helpers
+  func makeSUT() -> MosqueLoader {
+    MosqueLoader(client: client)
   }
 
 }
 
-// MARK: - MosqueLoaderSpy
-
-class MosqueLoaderSpy {
-  var loadedDates = [String]()
-  var loadedTimes = [PrayerTime]()
-
-  func loadMosque(name: String = "JJME") -> Mosque {
-    Mosque(name: name, calendar: [
-      Day(date: createDate("18/07/2022"), fajr: createTime(start: "", congregation: "")),
-      Day(date: createDate("19/07/2022"), fajr: createTime(start: "12:55", congregation: "13:30")),
-    ])
-  }
-
-  func createDate(_ dateAsString: String = "") -> Date? {
-    let dateFormatter = DateFormatter()
-    dateFormatter.locale = Locale(identifier: "en_GB")
-    dateFormatter.dateFormat = "dd/MM/yyyy"
-    if let date = dateFormatter.date(from: dateAsString) {
-      loadedDates.append(dateFormatter.string(from: date))
-      return date
-    }
-    return Date(timeIntervalSinceNow: 118800)
-  }
-
-  func createTime(start: String, congregation: String) -> PrayerTime {
-    let dateFormatter = DateFormatter()
-    dateFormatter.locale = Locale(identifier: "en_GB")
-    dateFormatter.dateFormat = "HH:mm"
-    if
-      let startTime = dateFormatter.date(from: start),
-      let congregationTime = dateFormatter.date(from: congregation)
-    {
-      loadedTimes.append(PrayerTime(start: startTime, congregation: congregationTime))
-      return PrayerTime(start: startTime, congregation: congregationTime)
-    }
-    loadedTimes.append(PrayerTime(start: nil, congregation: nil))
-    return PrayerTime(start: nil, congregation: nil)
-  }
-}
-
-// MARK: - MosqueCalendar
+// MARK: - Mosque
 
 struct Mosque {
   let name: String
@@ -124,20 +65,30 @@ struct PrayerTime {
   let congregation: Date?
 }
 
+// MARK: - Client
+
 protocol Client {
   func get(mosque: String)
 }
 
+// MARK: - MosqueLoader
+
 class MosqueLoader {
-  private let loader: Client
-  private var mosque: String
 
-  init(mosque: String, loader: Client) {
-    self.mosque = mosque
-    self.loader = loader
+  // MARK: Lifecycle
+
+  init(client: Client) {
+    self.client = client
   }
 
-  func loadeMosque() {
-    loader.get(mosque: mosque)
+  // MARK: Internal
+
+  func loadMosque(name: String) {
+    client.get(mosque: name)
   }
+
+  // MARK: Private
+
+  private let client: Client
+
 }
