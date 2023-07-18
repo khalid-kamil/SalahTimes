@@ -42,6 +42,14 @@ final class SalahTimesTests: XCTestCase {
     XCTAssertEqual(client.loadedMosque?.name, "JJME")
   }
 
+  func test_loadedMosqueWithNoDays_deliversEmptyCalendar() {
+    let sut = makeSUT()
+
+    sut.loadMosque(name: "JJME")
+
+    XCTAssertEqual(client.loadedMosque?.calendar.count, 0)
+  }
+
   // MARK: Helpers
   func makeSUT() -> MosqueLoader {
     MosqueLoader(client: client)
