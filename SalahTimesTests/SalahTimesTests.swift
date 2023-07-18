@@ -18,13 +18,8 @@ final class SalahTimesTests: XCTestCase {
     var loadedMosque: Mosque? = nil
     var sampleCalendar = [Day]()
 
-    var loadedDates = [String]()
-    var loadedTimes = [PrayerTime]()
-
     func get(mosque: String) {
-      if !mosque.isEmpty {
-        loadedMosque = Mosque(name: mosque, calendar: sampleCalendar)
-      }
+      loadedMosque = Mosque(name: mosque, calendar: sampleCalendar)
     }
   }
 
@@ -94,7 +89,9 @@ class MosqueLoader {
   // MARK: Internal
 
   func loadMosque(name: String) {
-    client.get(mosque: name)
+    if !name.isEmpty {
+      client.get(mosque: name)
+    }
   }
 
   // MARK: Private
