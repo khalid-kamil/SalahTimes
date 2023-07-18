@@ -41,8 +41,17 @@ final class SalahTimesTests: XCTestCase {
   func test_calendar_createValidTimeFromString() {
     let sut = loader.loadMosque()
 
-    XCTAssertEqual(loader.loadedTimes[0], "")
-    XCTAssertEqual(loader.loadedTimes[1], "12:55")
+    let dateFormatter = DateFormatter()
+    dateFormatter.locale = Locale(identifier: "en_GB")
+    dateFormatter.dateFormat = "HH:mm"
+    let startTime = dateFormatter.date(from: "12:55")
+    let congregationTime = dateFormatter.date(from: "13:30")
+
+
+    XCTAssertNil(loader.loadedTimes[0].start)
+    XCTAssertNil(loader.loadedTimes[0].congregation)
+    XCTAssertEqual(loader.loadedTimes[1].start, startTime)
+    XCTAssertEqual(loader.loadedTimes[1].congregation, congregationTime)
   }
 
   func test_calendar_dayHasFajr() {
@@ -58,12 +67,12 @@ final class SalahTimesTests: XCTestCase {
 
 class MosqueLoaderSpy {
   var loadedDates = [String]()
-  var loadedTimes = [String]()
+  var loadedTimes = [PrayerTime]()
 
   func loadMosque(name: String = "JJME") -> MosqueCalendar {
     MosqueCalendar(mosqueName: name, mosqueCalendar: [
-      Day(date: createDate("18/07/2022"), fajr: createTime()),
-      Day(date: createDate("19/07/2022"), fajr: createTime("12:55")),
+      Day(date: createDate("18/07/2022"), fajr: createTime(start: "", congregation: "")),
+      Day(date: createDate("19/07/2022"), fajr: createTime(start: "12:55", congregation: "13:30")),
     ])
   }
 
@@ -78,16 +87,19 @@ class MosqueLoaderSpy {
     return Date(timeIntervalSinceNow: 118800)
   }
 
-  func createTime(_ timeAsString: String = "") -> Date? {
+  func createTime(start: String, congregation: String) -> PrayerTime {
     let dateFormatter = DateFormatter()
     dateFormatter.locale = Locale(identifier: "en_GB")
-    dateFormatter.dateFormat = "hh:mm"
-    if let time = dateFormatter.date(from: timeAsString) {
-      loadedTimes.append(dateFormatter.string(from: time))
-      return time
+    dateFormatter.dateFormat = "HH:mm"
+    if
+      let startTime = dateFormatter.date(from: start),
+      let congregationTime = dateFormatter.date(from: congregation)
+    {
+      loadedTimes.append(PrayerTime(start: startTime, congregation: congregationTime))
+      return PrayerTime(start: startTime, congregation: congregationTime)
     }
-    loadedTimes.append("")
-    return Date(timeIntervalSinceNow: 118800)
+    loadedTimes.append(PrayerTime(start: nil, congregation: nil))
+    return PrayerTime(start: nil, congregation: nil)
   }
 }
 
@@ -102,5 +114,12 @@ struct MosqueCalendar {
 
 struct Day {
   let date: Date?
-  let fajr: Date?
+  let fajr: PrayerTime?
+}
+
+// MARK: - PrayerTime
+
+struct PrayerTime {
+  let start: Date?
+  let congregation: Date?
 }

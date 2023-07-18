@@ -1,0 +1,39 @@
+{
+  "configurations" : [
+    {
+      "id" : "2BE0D0B7-2342-4097-9444-4092FA832F33",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:SalahTimes.xcodeproj",
+      "identifier" : "E9E755C22A4B791900C3599D",
+      "name" : "SalahTimes"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:SalahTimes.xcodeproj",
+        "identifier" : "E9E755D22A4B791B00C3599D",
+        "name" : "SalahTimesTests"
+      }
+    },
+    {
+      "enabled" : false,
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:SalahTimes.xcodeproj",
+        "identifier" : "E9E755DC2A4B791B00C3599D",
+        "name" : "SalahTimesUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

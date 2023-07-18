@@ -47,6 +47,7 @@
 		E94025812A5DB81100BBC0F2 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		E94025832A5DBF5A00BBC0F2 /* MosqueInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MosqueInformationView.swift; sourceTree = "<group>"; };
 		E9D2E61B2A6211FA0025A731 /* MosqueData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MosqueData.json; sourceTree = "<group>"; };
+		E9D2E65F2A66E1D10025A731 /* SalahTimes.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = SalahTimes.xctestplan; sourceTree = "<group>"; };
 		E9E755C32A4B791900C3599D /* SalahTimes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SalahTimes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9E755C62A4B791900C3599D /* SalahTimesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalahTimesApp.swift; sourceTree = "<group>"; };
 		E9E755C82A4B791900C3599D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -100,6 +101,7 @@
 		E9E755BA2A4B791900C3599D = {
 			isa = PBXGroup;
 			children = (
+				E9D2E65F2A66E1D10025A731 /* SalahTimes.xctestplan */,
 				E9E755C52A4B791900C3599D /* SalahTimes */,
 				E9E755D62A4B791B00C3599D /* SalahTimesTests */,
 				E9E755E02A4B791B00C3599D /* SalahTimesUITests */,
