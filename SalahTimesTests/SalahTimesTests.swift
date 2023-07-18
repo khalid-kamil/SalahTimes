@@ -28,15 +28,21 @@ final class SalahTimesTests: XCTestCase {
 
   func test_calendar_dayHasDate() {
     let sut = loader.loadMosque()
-    let firstDay = sut.mosqueCalendar.first
 
-    XCTAssertNotNil(firstDay?.date)
+    XCTAssertFalse(loader.loadedDates.isEmpty)
   }
 
   func test_calendar_createValidDateFromString() {
-    let sut = loader.createDate(from: "18/07/2023")
+    let sut = loader.createDate("18/07/2023")
 
     XCTAssertEqual(loader.loadedDates[0], "18/07/2023")
+  }
+
+  func test_calendar_createValidTimeFromString() {
+    let sut = loader.loadMosque()
+
+    XCTAssertEqual(loader.loadedTimes[0], "")
+    XCTAssertEqual(loader.loadedTimes[1], "12:55")
   }
 
   func test_calendar_dayHasFajr() {
@@ -52,12 +58,16 @@ final class SalahTimesTests: XCTestCase {
 
 class MosqueLoaderSpy {
   var loadedDates = [String]()
+  var loadedTimes = [String]()
 
   func loadMosque(name: String = "JJME") -> MosqueCalendar {
-    MosqueCalendar(mosqueName: name, mosqueCalendar: [Day(date: Date(), fajr: "")])
+    MosqueCalendar(mosqueName: name, mosqueCalendar: [
+      Day(date: createDate("18/07/2022"), fajr: createTime()),
+      Day(date: createDate("19/07/2022"), fajr: createTime("12:55")),
+    ])
   }
 
-  func createDate(from dateAsString: String = "") -> Date? {
+  func createDate(_ dateAsString: String = "") -> Date? {
     let dateFormatter = DateFormatter()
     dateFormatter.locale = Locale(identifier: "en_GB")
     dateFormatter.dateFormat = "dd/MM/yyyy"
@@ -65,6 +75,18 @@ class MosqueLoaderSpy {
       loadedDates.append(dateFormatter.string(from: date))
       return date
     }
+    return Date(timeIntervalSinceNow: 118800)
+  }
+
+  func createTime(_ timeAsString: String = "") -> Date? {
+    let dateFormatter = DateFormatter()
+    dateFormatter.locale = Locale(identifier: "en_GB")
+    dateFormatter.dateFormat = "hh:mm"
+    if let time = dateFormatter.date(from: timeAsString) {
+      loadedTimes.append(dateFormatter.string(from: time))
+      return time
+    }
+    loadedTimes.append("")
     return Date(timeIntervalSinceNow: 118800)
   }
 }
@@ -79,7 +101,6 @@ struct MosqueCalendar {
 // MARK: - Day
 
 struct Day {
-  let date: Date
-  let fajr: String
+  let date: Date?
+  let fajr: Date?
 }
-
