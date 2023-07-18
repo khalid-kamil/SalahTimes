@@ -12,7 +12,7 @@ import XCTest
 
 final class SalahTimesTests: XCTestCase {
 
-  let loader = MosqueLoader()
+  let loader = MosqueLoaderSpy()
 
   func test_calendar_hasMosqueName() {
     let sut = loader.loadMosque()
@@ -33,6 +33,12 @@ final class SalahTimesTests: XCTestCase {
     XCTAssertNotNil(firstDay?.date)
   }
 
+  func test_calendar_createValidDateFromString() {
+    let sut = loader.createDate(from: "18/07/2023")
+
+    XCTAssertEqual(loader.loadedDates[0], "18/07/2023")
+  }
+
   func test_calendar_dayHasFajr() {
     let sut = loader.loadMosque()
     let firstDay = sut.mosqueCalendar.first
@@ -42,11 +48,24 @@ final class SalahTimesTests: XCTestCase {
 
 }
 
-// MARK: - MosqueLoader
+// MARK: - MosqueLoaderSpy
 
-struct MosqueLoader {
-  func loadMosque(name: String = "JJME", calendar: [Day] = [Day(date: Date(), fajr: "")]) -> MosqueCalendar {
-    MosqueCalendar(mosqueName: name, mosqueCalendar: calendar)
+class MosqueLoaderSpy {
+  var loadedDates = [String]()
+
+  func loadMosque(name: String = "JJME") -> MosqueCalendar {
+    MosqueCalendar(mosqueName: name, mosqueCalendar: [Day(date: Date(), fajr: "")])
+  }
+
+  func createDate(from dateAsString: String = "") -> Date? {
+    let dateFormatter = DateFormatter()
+    dateFormatter.locale = Locale(identifier: "en_GB")
+    dateFormatter.dateFormat = "dd/MM/yyyy"
+    if let date = dateFormatter.date(from: dateAsString) {
+      loadedDates.append(dateFormatter.string(from: date))
+      return date
+    }
+    return Date(timeIntervalSinceNow: 118800)
   }
 }
 
@@ -63,3 +82,4 @@ struct Day {
   let date: Date
   let fajr: String
 }
+
