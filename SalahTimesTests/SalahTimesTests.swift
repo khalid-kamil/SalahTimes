@@ -22,13 +22,23 @@ final class SalahTimesTests: XCTestCase {
     var loadedTimes = [PrayerTime]()
 
     func get(mosque: String) {
-      loadedMosque = Mosque(name: mosque, calendar: sampleCalendar)
+      if !mosque.isEmpty {
+        loadedMosque = Mosque(name: mosque, calendar: sampleCalendar)
+      }
     }
   }
 
   let client = ClientSpy()
 
-  func test_calendar_hasMosqueName() {
+  func test_loadedMosqueWithNoName_returnsNil() {
+    let sut = makeSUT()
+
+    sut.loadMosque(name: "")
+
+    XCTAssertNil(client.loadedMosque)
+  }
+
+  func test_loadedMosqueWithName_hasCorrectName() {
     let sut = makeSUT()
 
     sut.loadMosque(name: "JJME")
