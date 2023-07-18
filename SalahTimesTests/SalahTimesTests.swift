@@ -123,3 +123,21 @@ struct PrayerTime {
   let start: Date?
   let congregation: Date?
 }
+
+protocol Client {
+  func get(mosque: String)
+}
+
+class MosqueLoader {
+  private let loader: Client
+  private var mosque: String
+
+  init(mosque: String, loader: Client) {
+    self.mosque = mosque
+    self.loader = loader
+  }
+
+  func loadeMosque() {
+    loader.get(mosque: mosque)
+  }
+}
