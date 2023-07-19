@@ -16,6 +16,7 @@ final class SalahTimesTests: XCTestCase {
 
   class ClientSpy: Client {
     var loadedMosque: Mosque? = nil
+
     var sampleCalendar = [Day]()
 
     func get(mosque: String) {
@@ -24,6 +25,10 @@ final class SalahTimesTests: XCTestCase {
   }
 
   let client = ClientSpy()
+
+  var defaultDate: Date {
+    Calendar.current.date(from: DateComponents(year: 2023, month: 7, day: 18))!
+  }
 
   func test_loadedMosqueWithNoName_returnsNil() {
     let sut = makeSUT()
@@ -50,6 +55,22 @@ final class SalahTimesTests: XCTestCase {
     XCTAssertEqual(client.loadedMosque?.calendar.count, 0)
   }
 
+  func test_calendarWithOneDay_loadsMosqueCalendarWithOneDay() {
+    let sut = makeSUT()
+    client.sampleCalendar = [Day(
+      date: defaultDate,
+      fajr: .init(start: defaultDate, congregation: defaultDate),
+      sunrise: .init(start: defaultDate, congregation: defaultDate),
+      dhuhr: .init(start: defaultDate, congregation: defaultDate),
+      asr: .init(start: defaultDate, congregation: defaultDate),
+      maghrib: .init(start: defaultDate, congregation: defaultDate),
+      isha: .init(start: defaultDate, congregation: defaultDate))]
+
+    sut.loadMosque(name: "JJME")
+
+    XCTAssertEqual(client.loadedMosque?.calendar.count, 1)
+  }
+
   // MARK: Helpers
   func makeSUT() -> MosqueLoader {
     MosqueLoader(client: client)
@@ -67,15 +88,20 @@ struct Mosque {
 // MARK: - Day
 
 struct Day {
-  let date: Date?
-  let fajr: PrayerTime?
+  let date: Date
+  let fajr: PrayerTime
+  let sunrise: PrayerTime
+  let dhuhr: PrayerTime
+  let asr: PrayerTime
+  let maghrib: PrayerTime
+  let isha: PrayerTime
 }
 
 // MARK: - PrayerTime
 
 struct PrayerTime {
-  let start: Date?
-  let congregation: Date?
+  let start: Date
+  let congregation: Date
 }
 
 // MARK: - Client
