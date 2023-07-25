@@ -10,6 +10,8 @@
 		E933A86D2A60502B00BBE9D5 /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E933A86C2A60502B00BBE9D5 /* TodayViewModel.swift */; };
 		E94025822A5DB81100BBC0F2 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94025812A5DB81100BBC0F2 /* SectionHeaderView.swift */; };
 		E94025842A5DBF5A00BBC0F2 /* MosqueInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94025832A5DBF5A00BBC0F2 /* MosqueInformationView.swift */; };
+		E9A4784A2A67DF1D00112E53 /* Mosque.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A478492A67DF1D00112E53 /* Mosque.swift */; };
+		E9A4784C2A67DF6600112E53 /* MosqeLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A4784B2A67DF6600112E53 /* MosqeLoader.swift */; };
 		E9D2E61C2A6211FA0025A731 /* MosqueData.json in Resources */ = {isa = PBXBuildFile; fileRef = E9D2E61B2A6211FA0025A731 /* MosqueData.json */; };
 		E9E755C72A4B791900C3599D /* SalahTimesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E755C62A4B791900C3599D /* SalahTimesApp.swift */; };
 		E9E755C92A4B791900C3599D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E755C82A4B791900C3599D /* ContentView.swift */; };
@@ -46,6 +48,8 @@
 		E933A86C2A60502B00BBE9D5 /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
 		E94025812A5DB81100BBC0F2 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		E94025832A5DBF5A00BBC0F2 /* MosqueInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MosqueInformationView.swift; sourceTree = "<group>"; };
+		E9A478492A67DF1D00112E53 /* Mosque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mosque.swift; sourceTree = "<group>"; };
+		E9A4784B2A67DF6600112E53 /* MosqeLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MosqeLoader.swift; sourceTree = "<group>"; };
 		E9D2E61B2A6211FA0025A731 /* MosqueData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MosqueData.json; sourceTree = "<group>"; };
 		E9D2E65F2A66E1D10025A731 /* SalahTimes.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = SalahTimes.xctestplan; sourceTree = "<group>"; };
 		E9E755C32A4B791900C3599D /* SalahTimes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SalahTimes.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				E9D2E61B2A6211FA0025A731 /* MosqueData.json */,
+				E9A4784B2A67DF6600112E53 /* MosqeLoader.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 		E9E755F72A4BA0C600C3599D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E9A478492A67DF1D00112E53 /* Mosque.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -418,10 +424,12 @@
 				E9E755FE2A4BABC400C3599D /* CalendarDayRowView.swift in Sources */,
 				E933A86D2A60502B00BBE9D5 /* TodayViewModel.swift in Sources */,
 				E94025842A5DBF5A00BBC0F2 /* MosqueInformationView.swift in Sources */,
+				E9A4784C2A67DF6600112E53 /* MosqeLoader.swift in Sources */,
 				E9E755F12A4B95FB00C3599D /* TodayView.swift in Sources */,
 				E9E755C72A4B791900C3599D /* SalahTimesApp.swift in Sources */,
 				E94025822A5DB81100BBC0F2 /* SectionHeaderView.swift in Sources */,
 				E9E755FC2A4BA62600C3599D /* CalendarSalahCellView.swift in Sources */,
+				E9A4784A2A67DF1D00112E53 /* Mosque.swift in Sources */,
 				E9E756002A4BC44700C3599D /* TodaySalahRowView.swift in Sources */,
 				E9E755F32A4B989400C3599D /* CalendarView.swift in Sources */,
 			);

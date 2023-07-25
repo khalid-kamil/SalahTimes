@@ -32,7 +32,7 @@ extension TodayView {
     var ishaStart = "22:23"
     var ishaCongregation = "22:30"
 
-
+    let mosque = MosqueLoader(client: mosqueClient())
 
     var hijriDate: String {
       dateFormatter.calendar = .init(identifier: .islamic)
