@@ -11,6 +11,7 @@ import SwiftUI
 
 struct TodayView: View {
   @StateObject private var vm = TodayViewModel()
+  let data = ["Row 1", "Row 2", "Row 3", "Row 4", "Row 5"]
 
   var body: some View {
     ScrollView {
@@ -23,6 +24,7 @@ struct TodayView: View {
       .padding(.horizontal, 16)
     }
     .padding(.top, 1)
+    .background(Color(.secondarySystemBackground))
   }
 }
 
@@ -58,62 +60,75 @@ extension TodayView {
   }
 
   private var todaysTimes: some View {
-    Section(header: SectionHeaderView(text: "Today")) {
-      TodaySalahRowView(
-        salah: "Fajr",
-        adhanTime: vm.prayerTime(of: vm.sampleMosque.calendar.first?.fajr.start ?? Date()),
-        iqamaTime: vm.prayerTime(of: vm.sampleMosque.calendar.first?.fajr.congregation ?? Date()))
-      TodaySalahRowView(
-        salah: "Sunrise",
-        adhanTime: vm.prayerTime(of: vm.sampleMosque.calendar.first?.sunrise ?? Date()),
-        iqamaTime: "")
-      TodaySalahRowView(
-        salah: "Dhuhr",
-        adhanTime: vm.prayerTime(of: vm.sampleMosque.calendar.first?.dhuhr.start ?? Date()),
-        iqamaTime: vm.prayerTime(of: vm.sampleMosque.calendar.first?.dhuhr.congregation ?? Date()))
-      TodaySalahRowView(
-        salah: "Asr",
-        adhanTime: vm.prayerTime(of: vm.sampleMosque.calendar.first?.asr.start ?? Date()),
-        iqamaTime: vm.prayerTime(of: vm.sampleMosque.calendar.first?.asr.congregation ?? Date()))
-      TodaySalahRowView(
-        salah: "Maghrib",
-        adhanTime: vm.prayerTime(of: vm.sampleMosque.calendar.first?.maghrib.start ?? Date()),
-        iqamaTime: vm.prayerTime(of: vm.sampleMosque.calendar.first?.maghrib.congregation ?? Date()))
-      TodaySalahRowView(
-        salah: "Isha",
-        adhanTime: vm.prayerTime(of: vm.sampleMosque.calendar.first?.isha.start ?? Date()),
-        iqamaTime: vm.prayerTime(of: vm.sampleMosque.calendar.first?.isha.congregation ?? Date()))
+    VStack {
+      SectionHeaderView(text: "Today")
+      VStack(spacing: 0) {
+        TodaySalahRowView(
+          salah: "Fajr",
+          adhanTime: vm.stringFormat(of: vm.salah.fajr.start),
+          iqamaTime: vm.stringFormat(of: vm.salah.fajr.congregation))
+        TodaySalahRowView(
+          salah: "Sunrise",
+          adhanTime: vm.stringFormat(of: vm.salah.sunrise),
+          iqamaTime: "99:99")
+        TodaySalahRowView(
+          salah: "Dhuhr",
+          adhanTime: vm.stringFormat(of: vm.salah.dhuhr.start),
+          iqamaTime: vm.stringFormat(of: vm.salah.dhuhr.congregation))
+        TodaySalahRowView(
+          salah: "Asr",
+          adhanTime: vm.stringFormat(of: vm.salah.asr.start),
+          iqamaTime: vm.stringFormat(of: vm.salah.asr.congregation))
+        TodaySalahRowView(
+          salah: "Maghrib",
+          adhanTime: vm.stringFormat(of: vm.salah.maghrib.start),
+          iqamaTime: vm.stringFormat(of: vm.salah.maghrib.congregation))
+        TodaySalahRowView(
+          salah: "Isha",
+          adhanTime: vm.stringFormat(of: vm.salah.isha.start),
+          iqamaTime: vm.stringFormat(of: vm.salah.isha.congregation))
+      }
+      .background(.background)
+      .cornerRadius(12)
     }
+    .padding(.bottom)
   }
 
   private var tomorrowsTimes: some View {
-    Section(header: SectionHeaderView(text: "Tomorrow")) {
-      TodaySalahRowView(
-        salah: "Fajr",
-        adhanTime: vm.prayerTime(of: vm.sampleMosque.calendar[1].fajr.start),
-        iqamaTime: vm.prayerTime(of: vm.sampleMosque.calendar[1].fajr.congregation))
-      TodaySalahRowView(
-        salah: "Sunrise",
-        adhanTime: vm.prayerTime(of: vm.sampleMosque.calendar[1].sunrise),
-        iqamaTime: "")
-      TodaySalahRowView(
-        salah: "Dhuhr",
-        adhanTime: vm.prayerTime(of: vm.sampleMosque.calendar[1].dhuhr.start),
-        iqamaTime: vm.prayerTime(of: vm.sampleMosque.calendar[1].dhuhr.congregation))
-      TodaySalahRowView(
-        salah: "Asr",
-        adhanTime: vm.prayerTime(of: vm.sampleMosque.calendar[1].asr.start),
-        iqamaTime: vm.prayerTime(of: vm.sampleMosque.calendar[1].asr.congregation))
-      TodaySalahRowView(
-        salah: "Maghrib",
-        adhanTime: vm.prayerTime(of: vm.sampleMosque.calendar[1].maghrib.start),
-        iqamaTime: vm.prayerTime(of: vm.sampleMosque.calendar[1].maghrib.congregation))
-      TodaySalahRowView(
-        salah: "Isha",
-        adhanTime: vm.prayerTime(of: vm.sampleMosque.calendar[1].isha.start),
-        iqamaTime: vm.prayerTime(of: vm.sampleMosque.calendar[1].isha.congregation))
+    VStack(spacing: 8) {
+      SectionHeaderView(text: "Tomorrow")
+      VStack(spacing: 0) {
+        TodaySalahRowView(
+          salah: "Fajr",
+          adhanTime: vm.stringFormat(of: vm.tomorrowSalah.fajr.start),
+          iqamaTime: vm.stringFormat(of: vm.tomorrowSalah.fajr.congregation))
+        TodaySalahRowView(
+          salah: "Sunrise",
+          adhanTime: vm.stringFormat(of: vm.tomorrowSalah.sunrise),
+          iqamaTime: "99:99")
+        TodaySalahRowView(
+          salah: "Dhuhr",
+          adhanTime: vm.stringFormat(of: vm.tomorrowSalah.dhuhr.start),
+          iqamaTime: vm.stringFormat(of: vm.tomorrowSalah.dhuhr.congregation))
+        TodaySalahRowView(
+          salah: "Asr",
+          adhanTime: vm.stringFormat(of: vm.tomorrowSalah.asr.start),
+          iqamaTime: vm.stringFormat(of: vm.tomorrowSalah.asr.congregation))
+        TodaySalahRowView(
+          salah: "Maghrib",
+          adhanTime: vm.stringFormat(of: vm.tomorrowSalah.maghrib.start),
+          iqamaTime: vm.stringFormat(of: vm.tomorrowSalah.maghrib.congregation))
+        TodaySalahRowView(
+          salah: "Isha",
+          adhanTime: vm.stringFormat(of: vm.tomorrowSalah.isha.start),
+          iqamaTime: vm.stringFormat(of: vm.tomorrowSalah.isha.congregation))
+      }
+      .background(.background)
+      .cornerRadius(12)
     }
+    .padding(.bottom)
   }
+
 }
 
 // MARK: - Today_Previews

@@ -13,10 +13,18 @@ struct SectionHeaderView: View {
   let text: String
 
   var body: some View {
-    Text(text)
-      .font(.title3)
-      .fontWeight(.semibold)
-      .padding(.top)
+    HStack(alignment: .bottom) {
+      Text(text.uppercased())
+      Spacer()
+      Text("Adhan".uppercased())
+        .padding(.trailing, 8)
+      Text("Jama'ah".uppercased())
+    }
+    .font(.caption)
+    .fontWeight(.semibold)
+    .foregroundColor(.secondary)
+    .padding(.leading)
+    .padding(.trailing, 10)
   }
 }
 
