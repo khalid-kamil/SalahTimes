@@ -10,13 +10,13 @@ import Foundation
 // MARK: - TodayView.TodayViewModel
 
 extension TodayView {
-  @MainActor
+
   class TodayViewModel: ObservableObject {
 
     // MARK: Internal
 
     @Published var showMosqueInformation = false
-    @Published var today = Date()
+    @Published var today = Date.now
 
     var sampleMosque: Mosque {
       mosque.loadSampleMosque()
@@ -29,21 +29,24 @@ extension TodayView {
     }
 
     var tomorrowSalah: Day {
-      let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: today)!
       let salah = sampleMosque.calendar.filter {
         Calendar.current.isDate($0.date, equalTo: tomorrow, toGranularity: .day)
       }.last ?? sampleMosque.calendar[0]
       return salah
     }
 
-    var hijriDate: String {
-      dateFormatter.calendar = .init(identifier: .islamic)
-      dateFormatter.dateStyle = .full
-      return dateFormatter.string(from: today)
+    var tomorrow: Date {
+      Calendar.current.date(byAdding: .day, value: 1, to: today)!
     }
 
-    var gregorianDate: String {
-      today.formatted(date: .abbreviated, time: .omitted)
+    func getHijriDate(for date: Date) -> String {
+      dateFormatter.calendar = .init(identifier: .islamic)
+      dateFormatter.dateStyle = .full
+      return dateFormatter.string(from: date)
+    }
+
+    func getGregorianDate(for date: Date) -> String {
+      date.formatted(date: .abbreviated, time: .omitted)
     }
 
     func refreshDate() {

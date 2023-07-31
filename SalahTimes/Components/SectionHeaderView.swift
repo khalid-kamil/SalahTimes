@@ -10,11 +10,9 @@ import SwiftUI
 // MARK: - SectionHeaderView
 
 struct SectionHeaderView: View {
-  let text: String
 
   var body: some View {
     HStack(alignment: .bottom) {
-      Text(text.uppercased())
       Spacer()
       Text("Adhan".uppercased())
         .padding(.trailing, 8)
@@ -32,7 +30,7 @@ struct SectionHeaderView: View {
 
 struct SectionHeader_Previews: PreviewProvider {
   static var previews: some View {
-    SectionHeaderView(text: "Today")
+    SectionHeaderView()
       .previewDisplayName("Section Header")
       .previewLayout(.sizeThatFits)
       .background(Color(.secondarySystemBackground))

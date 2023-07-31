@@ -14,21 +14,16 @@ struct TodayView: View {
   // MARK: Internal
 
   var body: some View {
-    ScrollView {
-      VStack(alignment: .leading, spacing: 16) {
-        todaysDate
-        mosqueName
-        todaysTimes
-        tomorrowsTimes
+    NavigationStack {
+      ScrollView {
+        VStack(alignment: .leading, spacing: 16) {
+          todaysTimes
+          tomorrowsTimes
+        }
+        .padding(.horizontal, 16)
       }
-      .padding(.horizontal, 16)
-    }
-    .padding(.top, 1)
-    .background(Color(.secondarySystemBackground))
-    .onAppear {
-      Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { _ in
-        vm.refreshDate()
-      }
+      .background(Color(.secondarySystemBackground))
+      .navigationTitle(vm.sampleMosque.name)
     }
   }
 
@@ -39,39 +34,24 @@ struct TodayView: View {
 }
 
 extension TodayView {
-  private var todaysDate: some View {
-    VStack(alignment: .leading, spacing: 0) {
-      Text("\(vm.hijriDate)  •  \(vm.gregorianDate)")
-        .font(.footnote)
-        .fontWeight(.semibold)
-        .foregroundColor(.secondary)
-        .padding(.top)
-      Text("Today")
-        .font(.largeTitle)
-        .fontWeight(.bold)
-    }
-  }
-
-  private var mosqueName: some View {
-    HStack {
-      Text(vm.sampleMosque.name)
-        .font(.title2)
-        .fontWeight(.semibold)
-      Button {
-        vm.showMosqueInformation.toggle()
-      } label: {
-        Image(systemName: "info.circle")
-          .foregroundColor(.accentColor)
-      }
-    }
-    .sheet(isPresented: $vm.showMosqueInformation) {
-      MosqueInformationView(mosqueName: vm.sampleMosque.name)
-    }
-  }
 
   private var todaysTimes: some View {
     VStack {
-      SectionHeaderView(text: "Today")
+      VStack(alignment: .leading, spacing: 0) {
+        Text("\(vm.getHijriDate(for: vm.today))")
+          .font(.footnote)
+          .fontWeight(.semibold)
+          .foregroundColor(.secondary)
+          .padding(.top)
+        Text("\(vm.getGregorianDate(for: vm.today))")
+          .font(.footnote)
+          .fontWeight(.semibold)
+          .foregroundColor(.secondary)
+        Text("Today")
+          .font(.title)
+          .fontWeight(.semibold)
+        SectionHeaderView()
+      }
       VStack(spacing: 0) {
         TodaySalahRowView(
           salah: "Fajr",
@@ -112,7 +92,21 @@ extension TodayView {
 
   private var tomorrowsTimes: some View {
     VStack(spacing: 8) {
-      SectionHeaderView(text: "Tomorrow")
+      VStack(alignment: .leading, spacing: 0) {
+        Text("\(vm.getHijriDate(for: vm.tomorrow))")
+          .font(.footnote)
+          .fontWeight(.semibold)
+          .foregroundColor(.secondary)
+          .padding(.top)
+        Text("\(vm.getGregorianDate(for: vm.tomorrow))")
+          .font(.footnote)
+          .fontWeight(.semibold)
+          .foregroundColor(.secondary)
+        Text("Tomorrow")
+          .font(.title)
+          .fontWeight(.semibold)
+        SectionHeaderView()
+      }
       VStack(spacing: 0) {
         TodaySalahRowView(
           salah: "Fajr",

@@ -15,11 +15,15 @@ struct ContentView: View {
     TabView {
       TodayView()
         .tabItem {
-          Label("Today", systemImage: "square.stack.3d.up.fill")
+          Label("Today's Times", systemImage: "clock")
         }
       CalendarView()
         .tabItem {
           Label("Calendar", systemImage: "calendar")
+        }
+      MosqueInformationView(mosqueName: "JJME")
+        .tabItem {
+          Label("My Mosque", systemImage: "doc.text.image")
         }
     }
   }

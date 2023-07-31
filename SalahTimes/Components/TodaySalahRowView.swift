@@ -27,7 +27,7 @@ struct TodaySalahRowView: View {
           .opacity(iqamaTime == "99:99" ? 0 : 1)
       }
       .monospacedDigit()
-      .fontWeight(isNextSalah ? .semibold : .regular)
+      .fontWeight(.semibold)
       .foregroundColor(isNextSalah ? .accentColor : .secondary)
       .padding(.top)
       .padding(.horizontal)
